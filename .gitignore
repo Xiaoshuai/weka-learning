@@ -9,6 +9,7 @@ hs_err_pid*
 bin/
 .loadpath
 *.launch
+target
 
 # IntelliJ ignores
 .idea/

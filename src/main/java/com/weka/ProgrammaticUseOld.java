@@ -1,15 +1,14 @@
 package com.weka;
 
-import java.util.ArrayList;
-
 import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
+import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
 
-public class ProgrammaticUse {
+public class ProgrammaticUseOld {
 
 	public static void main(String[] args) throws Exception {
 		// / Step 1: Express the problem with features
@@ -22,24 +21,24 @@ public class ProgrammaticUse {
 		Attribute Attribute2 = new Attribute("secondNumeric");
 
 		// Declare a nominal attribute along with its values
-		ArrayList<String> fvNominalVal = new ArrayList<String>(3);
-		fvNominalVal.add("blue");
-		fvNominalVal.add("gray");
-		fvNominalVal.add("black");
+		FastVector fvNominalVal = new FastVector(3);
+		fvNominalVal.addElement("blue");
+		fvNominalVal.addElement("gray");
+		fvNominalVal.addElement("black");
 		Attribute Attribute3 = new Attribute("aNominal", fvNominalVal);
 
 		// Declare the class attribute along with its values
-		ArrayList<String> fvClassVal = new ArrayList<String>(2);
-		fvClassVal.add("positive");
-		fvClassVal.add("negative");
+		FastVector fvClassVal = new FastVector(2);
+		fvClassVal.addElement("positive");
+		fvClassVal.addElement("negative");
 		Attribute ClassAttribute = new Attribute("theClass", fvClassVal);
 
 		// Declare the feature vector
-		ArrayList<Attribute> fvWekaAttributes = new ArrayList<Attribute>(4);
-		fvWekaAttributes.add(Attribute1);
-		fvWekaAttributes.add(Attribute2);
-		fvWekaAttributes.add(Attribute3);
-		fvWekaAttributes.add(ClassAttribute);
+		FastVector fvWekaAttributes = new FastVector(4);
+		fvWekaAttributes.addElement(Attribute1);
+		fvWekaAttributes.addElement(Attribute2);
+		fvWekaAttributes.addElement(Attribute3);
+		fvWekaAttributes.addElement(ClassAttribute);
 		System.out.println(fvWekaAttributes);
 
 		// / Step 2: Train a Classifier
@@ -58,10 +57,10 @@ public class ProgrammaticUse {
 		// / Now, let’s fill the training set with one instance (weka.core.Instance):
 		// / Create the instance
 		Instance iExample = new DenseInstance(4);
-		iExample.setValue((Attribute) fvWekaAttributes.get(0), 1.0);
-		iExample.setValue((Attribute) fvWekaAttributes.get(1), 0.5);
-		iExample.setValue((Attribute) fvWekaAttributes.get(2), "gray");
-		iExample.setValue((Attribute) fvWekaAttributes.get(3), "positive");
+		iExample.setValue((Attribute) fvWekaAttributes.elementAt(0), 1.0);
+		iExample.setValue((Attribute) fvWekaAttributes.elementAt(1), 0.5);
+		iExample.setValue((Attribute) fvWekaAttributes.elementAt(2), "gray");
+		iExample.setValue((Attribute) fvWekaAttributes.elementAt(3), "positive");
 
 		// add the instance
 		isTrainingSet.add(iExample);

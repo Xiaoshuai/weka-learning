@@ -22,11 +22,13 @@
 			<artifactId>mmseg4j-core</artifactId>
 			<version>1.10.0</version>
 		</dependency>
-		<!-- Weka-stable -->
+		<!-- Weka-stable <dependency> <groupId>nz.ac.waikato.cms.weka</groupId> 
+			<artifactId>weka-stable</artifactId> <version>3.6.11</version> </dependency> -->
+		<!-- Weka-dev -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
-			<artifactId>weka-stable</artifactId>
-			<version>3.6.11</version>
+			<artifactId>weka-dev</artifactId>
+			<version>3.7.11</version>
 		</dependency>
 		<!-- Junit -->
 		<dependency>
